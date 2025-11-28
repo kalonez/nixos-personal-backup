@@ -8,9 +8,19 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix ./gpu.nix
+      ./hardware-configuration.nix ./gpu.nix ./boot-params.nix
       
     ];
+
+  # Automatic updates
+    system.autoUpgrade.enable = true;
+    system.autoUpgrade.dates = "weekly";
+  # Automatic cleanup
+  nix.gc.automatic = true;
+  nix.gc.dates = "daily";
+  nix.gc.options = "--delete-older-than 10d";
+  nix.settings.auto-optimise-store = true;
+
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -21,6 +31,34 @@
 
   networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  #bluetooth
+
+  hardware.bluetooth = {
+  enable = true;
+  powerOnBoot = true;
+  settings = {
+    General = {
+      # Shows battery charge of connected devices on supported
+      # Bluetooth adapters. Defaults to 'false'.
+      Experimental = true;
+      # When enabled other devices can connect faster to us, however
+      # the tradeoff is increased power consumption. Defaults to
+      # 'false'.
+      FastConnectable = true;
+    };
+    Policy = {
+      # Enable all controllers when they are found. This includes
+      # adapters present on start as well as adapters that are plugged
+      # in later on. Defaults to 'true'.
+      AutoEnable = true;
+    };
+  };
+};
+
+  
+  services.blueman.enable = true;
+
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -97,7 +135,12 @@
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+};
+
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -105,26 +148,34 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
+    firefoxpwa
     wget
     gedit
     btop
     alacritty
     git
     neofetch
-    solaar
+    piper
+    libratbag 
     tree
     vscode
-    audacious
+    audacious 
     mangohud
     protonup-ng
     wine
+    inkscape
+    localsend
    
   ];
 
   fonts.packages = with pkgs;  [
       jetbrains-mono
+      corefonts
+      vista-fonts
   ];
+
+  services.ratbagd.enable = true;
 
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
@@ -154,6 +205,8 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  programs.localsend.enable = true;
+  programs.localsend.openFirewall = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
