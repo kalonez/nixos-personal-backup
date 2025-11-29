@@ -13,7 +13,7 @@ Sync mode is performance mode, both cpu and gpu running at the same time.
 
 If you want the gpu to start only when you are doing heavy tasks, or gaming then you have to use this command (Only works in Offload mode)
 
-nvidia-offload %command% some-game (alas
+nvidia-offload %command% some-game
 
 
 or have it in steam game launch options 
