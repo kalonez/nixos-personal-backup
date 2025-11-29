@@ -1,6 +1,6 @@
 # nixos-personal-backup
 I'm personally setting this up for Lenovo LOQ 15IAX9
-The Specs are RTX 2050 and Intel 12th Gen 12450HX, but that doesn't matter any laptop with the Model LOQ 15IAX9 should work perfectly fine
+The Specs are RTX 2050 and Intel 12th Gen 12450HX, but that doesn't matter as any laptop with the Model LOQ 15IAX9 should work perfectly fine
 I've fixed most of the issues and still working on it as I'm not able to find anything about this particular Laptop
 If you are on KDE "PlasmaVantage"(can be found from the Discover store in Plasma addons section"), and "LenovoLegionLinuxGUI"(pkgs.lenovo-legion) will work with no hassle. 
 
