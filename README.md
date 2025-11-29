@@ -19,6 +19,6 @@ nvidia-offload %command% some-game
 
 
 
-nvidia-offload %command%   (or have it in steam game launch options )
+"nvidia-offload %command%"  (or have it in steam game launch options without the apostrophes)
 
 (Only works in Offload mode. Remove if you're not using offload mode)
