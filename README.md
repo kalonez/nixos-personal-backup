@@ -16,9 +16,9 @@ If you want the gpu to start only when you are doing heavy tasks, or gaming then
 nvidia-offload %command% some-game
 
 
-or have it in steam game launch options 
 
 
-nvidia-offload %command%   
+
+nvidia-offload %command%   (or have it in steam game launch options )
 
 (Only works in Offload mode. Remove if you're not using offload mode)
