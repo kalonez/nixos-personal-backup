@@ -8,7 +8,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix ./gpu.nix ./boot-params.nix
+      ./hardware-configuration.nix ./gpu.nix 
       
     ];
 
@@ -25,9 +25,13 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+   
+
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
+    boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+
 
   networking.hostName = "nixos"; # Define your hostname.
   #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -90,7 +94,10 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-
+  
+ # Cooling management
+  services.thermald.enable = lib.mkDefault true;
+ 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -148,8 +155,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
-    firefoxpwa
+    vim   
     wget
     gedit
     btop
@@ -166,7 +172,8 @@
     wine
     inkscape
     localsend
-   
+    vlc
+    kdePackages.discover 
   ];
 
   fonts.packages = with pkgs;  [
