@@ -21,16 +21,13 @@
   nix.gc.options = "--delete-older-than 10d";
   nix.settings.auto-optimise-store = true;
 
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
    
-
-
-  # Use latest kernel.
+ # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-    boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
 
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -96,7 +93,7 @@
   services.xserver.enable = true;
   
  # Cooling management
-  services.thermald.enable = lib.mkDefault true;
+ # services.thermald.enable = lib.mkDefault true;
  
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -173,7 +170,8 @@
     inkscape
     localsend
     vlc
-    kdePackages.discover 
+    kdePackages.discover
+    lenovo-legion 
   ];
 
   fonts.packages = with pkgs;  [
