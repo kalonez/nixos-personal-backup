@@ -22,3 +22,19 @@ If you want the gpu to start only when you are doing heavy tasks, or gaming then
 "nvidia-offload %command%"  (or have it in steam game launch options without the apostrophes)
 
 (Only works in Offload mode. Remove if you're not using offload mode)
+
+
+MUST
+
+
+If you use this, you have to add the unstable stable
+use the terminal 
+
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+sudo nix-channel --update
+sudo nixos-rebuild switch
+
+To install proton-ge to steam 
+just put this in the terminal "protonup" (without the apostrophes)
+
+it will install directly to steam only if you haven't removed the protonup package the the custom path that is directed to it.
