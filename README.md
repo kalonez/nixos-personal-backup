@@ -31,10 +31,18 @@ If you use this, you have to add the unstable branch
 using the terminal [Good for having both stable and unstable branch and later download any packages without hassle]
 
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+
+
 sudo nix-channel --update
+
+
 sudo nixos-rebuild switch
+
+
 
 To install proton-ge to steam 
 just put this in the terminal "protonup" (without the apostrophes)
+
+protonup
 
 it will install directly to steam only if you haven't removed the protonup package the the custom path that is directed to it.
