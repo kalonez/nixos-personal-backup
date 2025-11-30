@@ -45,4 +45,6 @@ just put this in the terminal "protonup" (without the apostrophes)
 
 protonup
 
-it will install directly to steam only if you haven't removed the protonup package the the custom path that is directed to it.
+it will install directly to steam only if you haven't removed the protonup package and the custom path that is directed to it.
+
+after that proton-ge should update itself from steam. If not my bad. I'll figure something out.
