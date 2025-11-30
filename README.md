@@ -28,7 +28,7 @@ MUST
 
 
 If you use this, you have to add the unstable branch
-using the terminal [Good for installing both stable and unstable packages]
+using the terminal [Good for having both stable and unstable branch and later download any packages without hassle]
 
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --update
