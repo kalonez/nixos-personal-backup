@@ -7,10 +7,10 @@
     enable = true;
     enable32Bit = true;
   };
-  
+
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.modesetting.enable = true;
-  
+
   hardware.nvidia = {
     open = false;
   };
@@ -20,7 +20,7 @@
    # intelBusId = "PCI:0:2:0";  # Integrated GPU
    # nvidiaBusId = "PCI:1:0:0";  # Dedicated NVIDIA GPU
  # };
- 
+
    hardware.nvidia.prime = {
     offload = {
       enable = true;
@@ -30,7 +30,7 @@
     # integrated
     intelBusId = "PCI:0:2:0";
     # amdgpuBusId = "PCI:6:0:0"
-    
+
     # dedicated
     nvidiaBusId = "PCI:1:0:0";
   };
@@ -48,6 +48,6 @@
 
     };
   };
- 
+
 }
 

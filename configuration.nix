@@ -4,12 +4,17 @@
 
 { config, lib,  pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> {
+    config.allowUnfree = true;   # optional
+  };
+in
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix ./gpu.nix 
-      
+      ./hardware-configuration.nix ./gpu.nix
+
     ];
 
   # Automatic updates
@@ -24,7 +29,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-   
+
  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
@@ -87,10 +92,10 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  
+
  # Cooling management
  # services.thermald.enable = lib.mkDefault true;
- 
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -134,13 +139,9 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
-};
 
+  # Install firefox.
+  programs.firefox.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -148,18 +149,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim   
+    vim
     wget
     gedit
-    btop
-    alacritty
+    htop
     git
     neofetch
     piper
-    libratbag 
+    libratbag
     tree
-    vscode
-    audacious 
+    audacious
     mangohud
     protonup-ng
     wine
@@ -167,7 +166,8 @@
     localsend
     vlc
     kdePackages.discover
-    lenovo-legion 
+    lenovo-legion
+    unstable.harmonoid
   ];
 
   fonts.packages = with pkgs;  [
