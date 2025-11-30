@@ -27,8 +27,8 @@ If you want the gpu to start only when you are doing heavy tasks, or gaming then
 MUST
 
 
-If you use this, you have to add the unstable stable
-use the terminal 
+If you use this, you have to add the unstable branch
+using the terminal [Good for installing both stable and unstable packages]
 
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --update
