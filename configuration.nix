@@ -151,23 +151,31 @@ in
   environment.systemPackages = with pkgs; [
     vim
     wget
-    gedit
-    htop
     git
-    neofetch
-    piper
-    libratbag
-    tree
-    audacious
-    mangohud
-    protonup-ng
-    wine
-    inkscape
-    localsend
-    vlc
-    kdePackages.discover
-    lenovo-legion
-    unstable.harmonoid
+    htop #Task Monitor
+    neofetch #System Fetch
+    tree #Fancy way of showing directories
+##                                            ##
+    piper #Logitech Mouse Hub
+    libratbag #Piper Dependency
+##                                            ##
+    mangohud #GamesPerformanceMonitor
+    protonup-ng #Proton-GE "protonup"
+    wine #Compatability layer for EXE files.
+
+##   #Applications                            ##
+    kdePackages.discover #KDE Store
+    inkscape #Vector design
+    localsend #Airdrop
+    vlc #Video Player
+    lenovo-legion #LenovoVantage Alternative
+    telegram-desktop
+    kdePackages.kdenlive #Video Editor
+    tenacity #Audio Editor
+
+    #Unstable Packages
+    unstable.harmonoid #Music Player
+
   ];
 
   fonts.packages = with pkgs;  [
