@@ -172,6 +172,7 @@ in
     telegram-desktop
     kdePackages.kdenlive #Video Editor
     tenacity #Audio Editor
+    calibre #Ebook Reader
 
     #Unstable Packages
     unstable.harmonoid #Music Player
