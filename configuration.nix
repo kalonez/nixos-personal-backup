@@ -2,24 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib,  pkgs, ... }:
-
+{ config, lib, pkgs, ... }:
 let
   unstable = import <nixos-unstable> {
     config.allowUnfree = true;   # optional
   };
 in
-
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix ./gpusync.nix
-
     ];
 
   # Automatic updates
-    system.autoUpgrade.enable = true;
-    system.autoUpgrade.dates = "weekly";
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.dates = "weekly";
   # Automatic cleanup
   nix.gc.automatic = true;
   nix.gc.dates = "daily";
@@ -30,13 +27,19 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
- # Use latest kernel.
+  # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ];
-
+  boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ]; #Lenovo Legion
 
   networking.hostName = "nixos"; # Define your hostname.
-  #networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+  # Enable networking
+  networking.networkmanager.enable = true;
 
   #bluetooth
 
@@ -62,15 +65,6 @@ in
   };
 };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   # Set your time zone.
   time.timeZone = "Asia/Dubai";
 
@@ -92,9 +86,6 @@ in
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-
- # Cooling management
- # services.thermald.enable = lib.mkDefault true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -139,10 +130,8 @@ in
     ];
   };
 
-
   # Install firefox.
   programs.firefox.enable = true;
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -150,35 +139,27 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    git
     vim
     wget
-    git
     htop #Task Monitor
     neofetch #System Fetch
     tree #Fancy way of showing directories
-##                                            ##
     piper #Logitech Mouse Hub
     libratbag #Piper Dependency
-##                                            ##
-    mangohud #GamesPerformanceMonitor
     protonup-ng #Proton-GE "protonup"
     wine #Compatability layer for EXE files.
-
-##   #Applications                            ##
-    kdePackages.discover #KDE Store
     inkscape #Vector design
     localsend #Airdrop
     vlc #Video Player
-    
     telegram-desktop
     kdePackages.kdenlive #Video Editor
     tenacity #Audio Editor
     calibre #Ebook Reader
-    
+
 
     #Unstable Packages
     unstable.harmonoid #Music Player
-
   ];
 
   fonts.packages = with pkgs;  [
@@ -198,7 +179,6 @@ in
     STEAM_EXTRA_COMPAT_TOOLS_PATHS =
       "\${HOME}/.steam/root/compatibilitytools.d";
   };
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
