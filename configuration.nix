@@ -168,11 +168,12 @@ in
     inkscape #Vector design
     localsend #Airdrop
     vlc #Video Player
-    lenovo-legion #LenovoVantage Alternative
+    
     telegram-desktop
     kdePackages.kdenlive #Video Editor
     tenacity #Audio Editor
     calibre #Ebook Reader
+    
 
     #Unstable Packages
     unstable.harmonoid #Music Player
