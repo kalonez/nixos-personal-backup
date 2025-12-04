@@ -147,7 +147,7 @@ in
     tree #Fancy way of showing directories
     piper #Logitech Mouse Hub
     libratbag #Piper Dependency
-    protonup-ng #Proton-GE "protonup"
+    protonup-qt #Proton-GE Installer
     wine #Compatability layer for EXE files.
     inkscape #Vector design
     localsend #Airdrop
@@ -174,11 +174,6 @@ in
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
-
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-      "\${HOME}/.steam/root/compatibilitytools.d";
-  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
