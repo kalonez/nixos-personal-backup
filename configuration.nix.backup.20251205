@@ -14,7 +14,6 @@ in
       ./hardware-configuration.nix ./gpusync.nix
     ];
 
-
   # Automatic updates
   system.autoUpgrade.enable = true;
   system.autoUpgrade.dates = "weekly";

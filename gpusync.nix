@@ -1,27 +1,35 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.modesetting.enable = true;
 
   hardware.nvidia = {
-    open = false;
+    modesetting.enable = true;
+    open = false;  # Proprietary driver
+
+    # Optional optimizations:
+    powerManagement.enable = true;  # Better power management
+    # forceFullCompositionPipeline = true;  # Uncomment if screen tearing
+
+    # Use stable driver package
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+    prime = {
+      sync.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
+  # CORRECT: Use hardware.graphics instead of hardware.opengl
+  hardware.graphics = {
+    enable = true;           # Replaces hardware.opengl.enable
+    enable32Bit = true;      # Replaces hardware.opengl.driSupport32Bit
+  };
 
-  hardware.nvidia.prime = {
-    sync.enable = true;
-
-    # integrated
-    # amdgpuBusId = "PCI:6:0:0"
-    intelBusId = "PCI:0:2:0";
-
-    # dedicated
-    nvidiaBusId = "PCI:1:0:0";
+  # Optional: For better compatibility with some games
+  environment.variables = {
+    __NV_PRIME_RENDER_OFFLOAD = "1";
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 }
