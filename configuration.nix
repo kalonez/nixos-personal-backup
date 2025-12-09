@@ -1,6 +1,6 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+# and in the NixOS manual (accessible by running 'nixos-help').
 
 { config, lib, pkgs, ... }:
 let
@@ -13,7 +13,6 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix ./gpusync.nix
     ];
-
 
   # Automatic updates
   system.autoUpgrade.enable = true;
@@ -39,32 +38,48 @@ in
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
+  # ===== QUAD9 DNS CONFIGURATION - Choose ONE of the options below =====
+
+  # Option 1: SIMPLEST - Just NetworkManager with Quad9 (Recommended)
   networking.networkmanager.enable = true;
+
+  # Force Quad9 DNS in NetworkManager
+  networking.networkmanager.insertNameservers = [
+    # IPv4 Quad9 servers
+    "9.9.9.9"          # Primary IPv4 (Security + Malware blocking)
+    "149.112.112.112"  # Secondary IPv4
+
+    # IPv6 Quad9 servers
+    "2620:fe::fe"      # Primary IPv6
+    "2620:fe::9"       # Secondary IPv6
+  ];
+
+  # Also set system nameservers as backup
+  networking.nameservers = [
+    "9.9.9.9"
+    "149.112.112.112"
+    "2620:fe::fe"
+    "2620:fe::9"
+  ];
+
+  # Disable systemd-resolved to avoid conflicts
+  services.resolved.enable = false;
 
   #bluetooth
 
   hardware.bluetooth = {
-  enable = true;
-  powerOnBoot = true;
-  settings = {
-    General = {
-      # Shows battery charge of connected devices on supported
-      # Bluetooth adapters. Defaults to 'false'.
-      Experimental = true;
-      # When enabled other devices can connect faster to us, however
-      # the tradeoff is increased power consumption. Defaults to
-      # 'false'.
-      FastConnectable = true;
-    };
-    Policy = {
-      # Enable all controllers when they are found. This includes
-      # adapters present on start as well as adapters that are plugged
-      # in later on. Defaults to 'true'.
-      AutoEnable = true;
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        Experimental = true;
+        FastConnectable = true;
+      };
+      Policy = {
+        AutoEnable = true;
+      };
     };
   };
-};
 
   # Set your time zone.
   time.timeZone = "Asia/Dubai";
@@ -86,7 +101,7 @@ in
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -120,7 +135,6 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kalon = {
     isNormalUser = true;
     description = "kalon";
@@ -149,7 +163,6 @@ in
     piper #Logitech Mouse Hub
     libratbag #Piper Dependency
     protonup-qt #Proton-GE Installer
-    wine #Compatability layer for EXE files.
     inkscape #Vector design
     localsend #Airdrop
     vlc #Video Player
@@ -157,23 +170,26 @@ in
     kdePackages.kdenlive #Video Editor
     tenacity #Audio Editor
     calibre #Ebook Reader
-
-
+    ungoogled-chromium
     #Unstable Packages
     unstable.harmonoid #Music Player
   ];
 
   fonts.packages = with pkgs;  [
-      jetbrains-mono
-      corefonts
-      vista-fonts
+    jetbrains-mono
+    corefonts
+    vista-fonts
   ];
 
   services.ratbagd.enable = true;
 
-  programs.steam.enable = true;
-  programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # optional
+    dedicatedServer.openFirewall = true; # optional
+    gamescopeSession.enable = true; # optional, for Gamescope
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -193,12 +209,13 @@ in
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+
   programs.localsend.enable = true;
   programs.localsend.openFirewall = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
+  # on your system were taken. It's perfectly fine and recommended to leave
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).

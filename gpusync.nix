@@ -12,7 +12,7 @@
     # forceFullCompositionPipeline = true;  # Uncomment if screen tearing
 
     # Use stable driver package
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
 
     prime = {
       sync.enable = true;
@@ -27,9 +27,4 @@
     enable32Bit = true;      # Replaces hardware.opengl.driSupport32Bit
   };
 
-  # Optional: For better compatibility with some games
-  environment.variables = {
-    __NV_PRIME_RENDER_OFFLOAD = "1";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  };
 }
