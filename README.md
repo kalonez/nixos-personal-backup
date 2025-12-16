@@ -44,7 +44,7 @@ I've setup up Quad9 too.
 I've setup up several aliases and I admit I used AI to organize some code, but it is a must that you never use it to totally modified the system unless you want to break your OS. I had that happened to me so I don't like clankers... They can be very wrong.
 
 I made KDE plasma launch seperately if it wants to suddenly break on me. I don't have to worry about sudden lag or hang or not working on me.
-But for some reason as I set it up like this. I never have to worry about it. Only when I hear my fan go crazy after closing a game then I use "plasmakillall" (alias) in the terminal.
+But for some reason as I set it up like this. I never have to worry about it. Only when I hear my fan go crazy after closing a game then I use "plasmakillall" (alias) in the terminal. It then puts me automatically to TTY, after that I use "startplasma". The aliases are for ease of use. I don't like to type a whole string of line or command to launch something simple
 
 The aliases I frequently use in the terminal are
 
