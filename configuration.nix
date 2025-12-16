@@ -31,7 +31,11 @@ in
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ]; #Lenovo Legion
 
+   # COMPLETELY DISABLE kwalletd system-wide
+  systemd.user.services.kwalletd.enable = false;
+
   networking.hostName = "nixos"; # Define your hostname.
+  networking.wireless.iwd.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -41,7 +45,10 @@ in
   # ===== QUAD9 DNS CONFIGURATION - Choose ONE of the options below =====
 
   # Option 1: SIMPLEST - Just NetworkManager with Quad9 (Recommended)
-  networking.networkmanager.enable = true;
+    networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+    };
 
   # Force Quad9 DNS in NetworkManager
   networking.networkmanager.insertNameservers = [
@@ -84,7 +91,8 @@ in
   # Set your time zone.
   time.timeZone = "Asia/Dubai";
 
-  # Select internationalisation properties.
+  # Select internationalisation properties.file, expecting ';'
+
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -104,8 +112,50 @@ in
   services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.enable = false;
   services.desktopManager.plasma6.enable = true;
+
+    # Auto-login on TTY1
+  services.getty.autologinUser = "kalon";  # Replace with your username
+
+    # Corrected version - simpler
+  programs.bash.interactiveShellInit = ''
+    if [[ $(tty) == /dev/tty1 ]]; then
+        dbus-run-session startplasma-wayland
+    fi
+  '';
+
+ environment.shellAliases = {
+    killplasma = "pkill plasmashell";
+    plasmakillall = "pkill -9 plasmashell; pkill -9 kwin_wayland; pkill -9 kded6; pkill -9 plasma_session";
+    stopplasma = "pkill plasmashell && pkill kwin_wayland";
+
+    startplasma = "dbus-run-session startplasma-wayland";
+    restartplasma = "plasma-kill-all && sleep 2 && start-plasma";
+    softrestartplasma = "kquitapp6 plasmashell && sleep 2 && kstart6 plasmashell";
+
+    # TTY control
+    tty1 = "sudo chvt 1";
+    tty2 = "sudo chvt 2";
+    tty3 = "sudo chvt 3";
+    gui = "sudo chvt 1";
+    term = "sudo chvt 2";
+
+    # Logs
+    logs-plasma = "journalctl -b --user -u plasma-* | tail -100";
+    logs-boot = "journalctl -b | tail -100";
+
+    # System
+    update = "sudo nixos-rebuild switch";
+    clean = "sudo nix-collect-garbage -d";
+    rebuild = "sudo nixos-rebuild switch";
+  };
+
+  # Essential services for Wayland
+  services.dbus.enable = true;
+  security.polkit.enable = true;
+  hardware.graphics.enable = true;
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -138,7 +188,7 @@ in
   users.users.kalon = {
     isNormalUser = true;
     description = "kalon";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "wheel" "networkmanager" "video" "audio" "input" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
@@ -170,7 +220,11 @@ in
     kdePackages.kdenlive #Video Editor
     tenacity #Audio Editor
     calibre #Ebook Reader
-    ungoogled-chromium
+    brave
+    unrar
+    obs-studio
+    obs-studio-plugins.obs-vkcapture
+    krita
     #Unstable Packages
     unstable.harmonoid #Music Player
   ];
