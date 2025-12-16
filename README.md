@@ -59,5 +59,10 @@ clean ("sudo nix-collect-garbage -d")
 
 rebuild ("sudo nixos-rebuild switch") PS. Sometimes I forget
 
+you can easily launch TTY if KDE Plasma does stop working
+
+Ctrl+AltF1 or Ctrl+AltF2 or Ctrl+AltF3 or Ctrl+AltF4
+
+F1 is most likely going to the environment you're in which is KDE plasma :)
 
 well you can see the alias "update" and "rebuild" does the same thing. I can be dumb sometimes.
