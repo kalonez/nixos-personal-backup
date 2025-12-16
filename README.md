@@ -61,7 +61,7 @@ rebuild ("sudo nixos-rebuild switch") PS. Sometimes I forget
 
 you can easily launch TTY if KDE Plasma does stop working
 
-Ctrl+AltF1 or Ctrl+AltF2 or Ctrl+AltF3 or Ctrl+AltF4
+Ctrl+Alt+F1 or Ctrl+Alt+F2 or Ctrl+Alt+F3 or Ctrl+Alt+F4
 
 F1 is most likely going to the environment you're in which is KDE plasma :)
 
