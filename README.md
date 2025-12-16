@@ -41,3 +41,23 @@ sudo nixos-rebuild switch
 use ProtonQT to download ProtonGE. It should be installed if you use my configuration
 
 I've setup up Quad9 too.
+I've setup up several aliases and I admit I used AI to organize some code, but it is a must that you never use it to totally modified the system unless you want to break your OS. I had that happened to me so I don't like clankers... They can be very wrong.
+
+I made KDE plasma launch seperately if it wants to suddenly break on me. I don't have to worry about sudden lag or hang or not working on me.
+But for some reason as I set it up like this. I never have to worry about it. Only when I hear my fan go crazy after closing a game then I use "plasmakillall" (alias) in the terminal.
+
+The aliases I frequently use in the terminal are
+
+
+plasmakillall
+
+startplasma
+
+update ("sudo nixos-rebuild switch")
+
+clean ("sudo nix-collect-garbage -d")
+
+rebuild ("sudo nixos-rebuild switch") PS. Sometimes I forget
+
+
+well you can see the alias "update" and "rebuild" does the same thing. I can be dumb sometimes.
