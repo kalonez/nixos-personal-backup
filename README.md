@@ -38,13 +38,6 @@ sudo nix-channel --update
 
 sudo nixos-rebuild switch
 
+use ProtonQT to download ProtonGE. It should be installed if you use my configuration
 
-
-To install proton-ge to steam 
-just put this in the terminal "protonup" (without the apostrophes)
-
-protonup
-
-it will install directly to steam only if you haven't removed the protonup package and the custom path that is directed to it.
-
-after that proton-ge should update itself from steam. If not my bad. I'll figure something out.
+I've setup up Quad9 too.
