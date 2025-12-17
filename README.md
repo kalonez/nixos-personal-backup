@@ -19,7 +19,7 @@ Recommended to keep both stable and unstable channels for flexibility.
 ## I've enable flatpak service
 * flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 * flatpak update
- ###### Using programs like Inkscape or Kdenlive without worrying about download or putting additional dependencies. It is too much of a hassle with a moving goal post just to make it work
+ ###### Using programs like Inkscape or Kdenlive without worrying about downloading or putting additional dependencies. It is too much of a hassle with a moving goal post just to make it work
 
 # Performance Modes
 Sync Mode (Performance)
