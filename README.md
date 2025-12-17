@@ -1,14 +1,14 @@
-#NixOS Configuration for Lenovo LOQ 15IAX9
+# NixOS Configuration for Lenovo LOQ 15IAX9
 #Overview
 This is a personal NixOS configuration tailored for the Lenovo LOQ 15IAX9 laptop (specs: RTX 2050, Intel 12th Gen 12450HX). It should work for any laptop with this model.
 
-#Features & Fixes
+## Features & Fixes
 Most hardware issues resolved.
 
 Includes both Sync Mode (performance) and Offload Mode (battery saving).
 Pre-configured for KDE Plasma with relevant Lenovo utilities.
 
-#Prerequisites
+# Prerequisites
 #Add Unstable Channel (Required)
 sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 sudo nix-channel --update
@@ -16,7 +16,7 @@ sudo nixos-rebuild switch
 
 Recommended to keep both stable and unstable channels for flexibility.
 
-#Performance Modes
+# Performance Modes
  Sync Mode (Performance)
 CPU and GPU run together.
 
@@ -28,7 +28,7 @@ imports =
       ./hardware-configuration.nix ./gpu.nix
     ];
 
-#Offload Mode (Battery/Travel)
+# Offload Mode (Battery/Travel)
 GPU only activates on demand.
 
 Use for better battery life.
@@ -40,16 +40,16 @@ nvidia-offload %command% some-game
 For Steam: add nvidia-offload %command% to game launch options.
 Note: Only works in Offload Mode.
 
-#Optional
+# Optional
 KDE Plasma & Lenovo Tools
 PlasmaVantage: Available in Discover Store (Plasma Addons section).
 
 LenovoLegionLinuxGUI: Install via pkgs.lenovo-legion.
 
-#Gaming & Proton
+# Gaming & Proton
 ProtonQT is easy to setup for downloading ProtonGE.
 
-#Network
+# Network
 Quad9 DNS is set up by default.
 
 #Troubleshooting KDE Plasma
@@ -63,7 +63,7 @@ command works inside the terminal
 Then restart Plasma:
 startplasma
 
-#Accessing TTY
+# Accessing TTY
 Ctrl+Alt+F1: Returns to current Plasma session (if available).
 
 Ctrl+Alt+F2/F3/F4: Switches to other TTYs.
