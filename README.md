@@ -52,13 +52,11 @@ ProtonQT is easy to setup for downloading ProtonGE.
 # Network
 Quad9 DNS is set up by default.
 
-#Troubleshooting KDE Plasma
+# Troubleshooting KDE Plasma
 If Plasma hangs or fans run high after gaming:
-
+###### command works inside the terminal
 plasmakillall
 (This moves you to TTY automatically)
-
-command works inside the terminal
 
 Then restart Plasma:
 startplasma
