@@ -205,6 +205,7 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+
     git
     vim
     wget
@@ -214,18 +215,13 @@ in
     piper #Logitech Mouse Hub
     libratbag #Piper Dependency
     protonup-qt #Proton-GE Installer
-    inkscape #Vector design
     localsend #Airdrop
     vlc #Video Player
     telegram-desktop
-    kdePackages.kdenlive #Video Editor
     tenacity #Audio Editor
     calibre #Ebook Reader
     brave
     unrar
-    obs-studio
-    obs-studio-plugins.obs-vkcapture
-    krita
     #Unstable Packages
     unstable.harmonoid #Music Player
   ];
@@ -268,6 +264,7 @@ in
   programs.localsend.enable = true;
   programs.localsend.openFirewall = true;
 
+  services.flatpak.enable = true;
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
