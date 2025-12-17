@@ -10,14 +10,14 @@ Pre-configured for KDE Plasma with relevant Lenovo utilities.
 
 # Prerequisites
 ## Add Unstable Channel (Required)
-### sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-### sudo nix-channel --update
-### sudo nixos-rebuild switch
+* sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+* sudo nix-channel --update
+* sudo nixos-rebuild switch
 
 Recommended to keep both stable and unstable channels for flexibility.
 
 # Performance Modes
- Sync Mode (Performance)
+Sync Mode (Performance)
 CPU and GPU run together.
 
 Enabled at boot as "gaming-time". If you use the gpu.nix file
@@ -59,7 +59,7 @@ If Plasma hangs or fans run high after gaming:
 (This moves you to TTY automatically)
 
 Then restart Plasma:
-##### startplasma
+* startplasma
 
 # Accessing TTY
 Ctrl+Alt+F1: Returns to current Plasma session (if available).
@@ -73,22 +73,22 @@ runs bash shell by default
 
 ###### Kill Plasma session
 ###### use alias ↓↓↓↓ in the terminal
-##### plasmakillall  
+* plasmakillall  
 
 ###### Start Plasma
 ###### use alias ↓↓↓↓
-##### startplasma    
+* startplasma    
 
 
 ###### use alias ↓↓↓↓ sudo nixos-rebuild switch
-##### update         
+* update         
 
 
 ###### use alias ↓↓↓↓ sudo nix-collect-garbage -d
-##### clean          
+* clean          
  
 ###### use alias ↓↓↓↓ sudo nixos-rebuild switch
-##### rebuild        
+* rebuild        
 
 
 ###### Note: update and rebuild do the same thing – personal preference.
