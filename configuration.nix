@@ -28,7 +28,8 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ]; #Lenovo Legion
 
    # COMPLETELY DISABLE kwalletd system-wide
