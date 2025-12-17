@@ -1,10 +1,16 @@
-# nixos-personal-backup
-I'm personally setting this up for Lenovo LOQ 15IAX9.
-The Specs are RTX 2050 and Intel 12th Gen 12450HX, but that doesn't matter as any laptop with the Model LOQ 15IAX9 should work perfectly fine.
-I've fixed most of the issues and still working on it as I'm not able to find anything about this particular Laptop.
-If you are on KDE "PlasmaVantage"(can be found from the Discover store in Plasma addons section"), and "LenovoLegionLinuxGUI"(pkgs.lenovo-legion) will work with no hassle. 
+NixOS Configuration for Lenovo LOQ 15IAX9
+Overview
+This is a personal NixOS configuration tailored for the Lenovo LOQ 15IAX9 laptop (specs: RTX 2050, Intel 12th Gen 12450HX). It should work for any laptop with this model.
 
-This setup has both sync and offload mode together. 
+Features & Fixes
+Most hardware issues resolved.
+
+Includes both Sync Mode (performance) and Offload Mode (battery saving).
+
+Pre-configured for KDE Plasma with relevant
+
+This setup has both sync and offload mode together. If you use the gpu.nix file
+In order to use it you have to put it the configuration inside the imports section like this ./gpu
 
 Offload mode is for travelling and longer battery life. 
 Sync mode is performance mode, both cpu and gpu running at the same time.
