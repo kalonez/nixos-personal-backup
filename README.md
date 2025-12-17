@@ -68,16 +68,16 @@ Ctrl+Alt+F2/F3/F4: Switches to other TTYs.
 
 Aliases work in any TTY.
 
-#Useful Aliases
+# Useful Aliases
 runs bash shell by default
 
-plasmakillall  # Kill Plasma session
-startplasma    # Start Plasma
-update         # sudo nixos-rebuild switch
-clean          # sudo nix-collect-garbage -d
-rebuild        # sudo nixos-rebuild switch
-Note: update and rebuild do the same thing – personal preference.
+##### plasmakillall  # Kill Plasma session
+##### startplasma    # Start Plasma
+##### update         # sudo nixos-rebuild switch
+##### clean          # sudo nix-collect-garbage -d
+##### rebuild        # sudo nixos-rebuild switch
+###### Note: update and rebuild do the same thing – personal preference.
 
-Important Notes
+#### Important Notes
 Some code was organized with AI assistance, but never let AI fully modify your NixOS configuration – it can break your system.
 This setup runs Plasma separately for stability; lag or hangs are rare but recoverable via TTY.
