@@ -103,3 +103,6 @@ Some code was organized with AI assistance, **but never let AI fully modify your
 ###### **You'll have a very bad time. AI = BAD NEWS. Don't use AI if you don't understand code**
 
 This setup runs Plasma separately for stability; lag or hangs are rare but recoverable via TTY.
+## Don't forget to use the "update --upgrade" after you've applied this configuration if not use:
+* sudo nixos-rebuild switch --upgrade
+  It will update itself to the most up-to date nixos repos including your drivers 
