@@ -1,5 +1,5 @@
 # NixOS Configuration for Lenovo LOQ 15IAX9
-#Overview
+###### Overview
 This is a personal NixOS configuration tailored for the Lenovo LOQ 15IAX9 laptop (specs: RTX 2050, Intel 12th Gen 12450HX). It should work for any laptop with this model.
 
 ## Features & Fixes
