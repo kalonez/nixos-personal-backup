@@ -55,11 +55,11 @@ Quad9 DNS is set up by default.
 # Troubleshooting KDE Plasma
 If Plasma hangs or fans run high after gaming:
 ###### command works inside the terminal
-plasmakillall
+##### plasmakillall
 (This moves you to TTY automatically)
 
 Then restart Plasma:
-startplasma
+##### startplasma
 
 # Accessing TTY
 Ctrl+Alt+F1: Returns to current Plasma session (if available).
