@@ -20,8 +20,9 @@ Recommended to keep both stable and unstable channels for flexibility.
 Sync Mode (Performance)
 CPU and GPU run together.
 
-Enabled at boot as "gaming-time". If you use the gpu.nix file
-In order to use it, put it inside the "imports" section on the file line like this ./gpu.nix
+Enabled at boot as "gaming-time". 
+##### If you use the *gpu.nix* file
+In order to use it, put it inside the "imports" section on the file line like this *./gpu.nix*
 
 imports =
     [ # Include the results of the hardware scan.
@@ -33,29 +34,29 @@ GPU only activates on demand.
 
 Use for better battery life.
 
-GPU Activation in Offload Mode
+##### GPU Activation in Offload Mode
 To start the GPU only when needed (gaming/heavy tasks):
-nvidia-offload %command% some-game
+*nvidia-offload %command% some-game*
 
-For Steam: add nvidia-offload %command% to game launch options.
-Note: Only works in Offload Mode.
+##### For Steam: add nvidia-offload %command% to game launch options.
+*Note: Only works in Offload Mode.*
 
-# Optional
+### Optional
 KDE Plasma & Lenovo Tools
 PlasmaVantage: Available in Discover Store (Plasma Addons section).
 
 LenovoLegionLinuxGUI: Install via pkgs.lenovo-legion.
 
-# Gaming & Proton
+### Gaming & Proton
 ProtonQT is easy to setup for downloading ProtonGE.
 
-# Network
+### Network
 Quad9 DNS is set up by default.
 
 # Troubleshooting KDE Plasma
 If Plasma hangs or fans run high after gaming:
 ###### command works inside the terminal
-##### plasmakillall
+* plasmakillall
 (This moves you to TTY automatically)
 
 Then restart Plasma:
@@ -68,7 +69,7 @@ Then restart Plasma:
 
 Aliases work in any TTY.
 
-# Useful Aliases
+### Useful Aliases
 runs bash shell by default
 
 ###### Kill Plasma session
@@ -93,6 +94,8 @@ runs bash shell by default
 
 ###### Note: update and rebuild do the same thing – personal preference.
 
-#### Important Notes
-Some code was organized with AI assistance, but never let AI fully modify your NixOS configuration – it can break your system.
+##### Important Notes
+Some code was organized with AI assistance, **but never let AI fully modify your NixOS configuration** – it can break your system.
+###### **You'll have a very bad time. AI = BAD NEWS**
+
 This setup runs Plasma separately for stability; lag or hangs are rare but recoverable via TTY.
