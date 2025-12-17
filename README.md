@@ -72,18 +72,23 @@ Aliases work in any TTY.
 runs bash shell by default
 
 ###### Kill Plasma session
+###### use alias ↓↓↓↓ in the terminal
 ##### plasmakillall  
 
 ###### Start Plasma
+###### use alias ↓↓↓↓
 ##### startplasma    
 
 ###### sudo nixos-rebuild switch
+###### use alias ↓↓↓↓
 ##### update         
 
 ###### sudo nix-collect-garbage -d
+###### use alias ↓↓↓↓
 ##### clean          
 
 ###### sudo nixos-rebuild switch
+###### use alias ↓↓↓↓
 ##### rebuild        
 
 
