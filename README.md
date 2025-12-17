@@ -79,16 +79,15 @@ runs bash shell by default
 ###### use alias ↓↓↓↓
 ##### startplasma    
 
-###### sudo nixos-rebuild switch
-###### use alias ↓↓↓↓
+
+###### use alias ↓↓↓↓ sudo nixos-rebuild switch
 ##### update         
 
-###### sudo nix-collect-garbage -d
-###### use alias ↓↓↓↓
-##### clean          
 
-###### sudo nixos-rebuild switch
-###### use alias ↓↓↓↓
+###### use alias ↓↓↓↓ sudo nix-collect-garbage -d
+##### clean          
+ 
+###### use alias ↓↓↓↓ sudo nixos-rebuild switch
 ##### rebuild        
 
 
