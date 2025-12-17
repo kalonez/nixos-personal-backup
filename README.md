@@ -62,9 +62,9 @@ Then restart Plasma:
 * startplasma
 
 # Accessing TTY
-Ctrl+Alt+F1: Returns to current Plasma session (if available).
+* Ctrl+Alt+F1: Returns to current Plasma session (if available).
 
-Ctrl+Alt+F2/F3/F4: Switches to other TTYs.
+* Ctrl+Alt+F2/F3/F4: Switches to other TTYs.
 
 Aliases work in any TTY.
 
