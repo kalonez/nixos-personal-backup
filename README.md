@@ -71,7 +71,7 @@ Aliases work in any TTY.
 # Useful Aliases
 runs bash shell by default
 
-######## Kill Plasma session
+###### Kill Plasma session
 ###### use alias ↓↓↓↓ in the terminal
 ##### plasmakillall  
 
