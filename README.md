@@ -71,11 +71,21 @@ Aliases work in any TTY.
 # Useful Aliases
 runs bash shell by default
 
-##### plasmakillall  ###### Kill Plasma session
-##### startplasma    ###### Start Plasma
-##### update         ###### sudo nixos-rebuild switch
-##### clean          ###### sudo nix-collect-garbage -d
-##### rebuild        ###### sudo nixos-rebuild switch
+##### plasmakillall  
+###### Kill Plasma session
+
+##### startplasma    
+###### Start Plasma
+
+##### update         
+###### sudo nixos-rebuild switch
+
+##### clean          
+###### sudo nix-collect-garbage -d
+
+##### rebuild        
+###### sudo nixos-rebuild switch
+
 ###### Note: update and rebuild do the same thing – personal preference.
 
 #### Important Notes
