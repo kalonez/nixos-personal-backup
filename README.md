@@ -95,6 +95,6 @@ runs bash shell by default
 
 ##### Important Notes
 Some code was organized with AI assistance, **but never let AI fully modify your NixOS configuration** – it can break your system.
-###### **You'll have a very bad time. AI = BAD NEWS**
+###### **You'll have a very bad time. AI = BAD NEWS. Don't use AI if you don't understand code**
 
 This setup runs Plasma separately for stability; lag or hangs are rare but recoverable via TTY.
