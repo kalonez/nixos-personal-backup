@@ -9,10 +9,10 @@ Includes both Sync Mode (performance) and Offload Mode (battery saving).
 Pre-configured for KDE Plasma with relevant Lenovo utilities.
 
 # Prerequisites
-#Add Unstable Channel (Required)
-sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
-sudo nix-channel --update
-sudo nixos-rebuild switch
+## Add Unstable Channel (Required)
+### sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
+### sudo nix-channel --update
+### sudo nixos-rebuild switch
 
 Recommended to keep both stable and unstable channels for flexibility.
 
