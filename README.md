@@ -14,8 +14,12 @@ Pre-configured for KDE Plasma with relevant Lenovo utilities.
 * sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos-unstable
 * sudo nix-channel --update
 * sudo nixos-rebuild switch
-
 Recommended to keep both stable and unstable channels for flexibility.
+  
+## I've enable flatpak service
+* flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+* flatpak update
+  
 
 # Performance Modes
 Sync Mode (Performance)
