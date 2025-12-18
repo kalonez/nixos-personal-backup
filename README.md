@@ -106,4 +106,4 @@ This setup runs Plasma separately for stability; lag or hangs are rare but recov
 ## Don't forget to use the "update --upgrade" after you've applied this configuration if not, use:
 ###### It will update itself to the most up-to date nixos repos including your drivers 
 * sudo nixos-rebuild switch --upgrade
-
+#### Don't forget to change the username(kalon)  to yours
