@@ -32,9 +32,6 @@ in
   #boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.extraModulePackages = [ config.boot.kernelPackages.lenovo-legion-module ]; #Lenovo Legion
 
-   # COMPLETELY DISABLE kwalletd system-wide
-  systemd.user.services.kwalletd.enable = false;
-
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.iwd.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -208,6 +205,8 @@ in
 
     git
     vim
+    neovim
+    vscode
     wget
     htop #Task Monitor
     neofetch #System Fetch
@@ -222,6 +221,8 @@ in
     calibre #Ebook Reader
     brave
     unrar
+    easyeffects
+    kdePackages.partitionmanager
     #Unstable Packages
     unstable.harmonoid #Music Player
   ];
