@@ -207,7 +207,6 @@ in
     git
     vim
     neovim
-    vscode
     wget
     htop #Task Monitor
     neofetch #System Fetch
@@ -224,6 +223,7 @@ in
     unrar
     easyeffects
     kdePackages.partitionmanager
+    deluge-gtk #Torrent Client
     #Unstable Packages
     unstable.harmonoid #Music Player
   ];
