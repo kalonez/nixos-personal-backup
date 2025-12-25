@@ -12,7 +12,7 @@
     # forceFullCompositionPipeline = true;  # Uncomment if screen tearing
 
     # Use stable driver package
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
 
     prime = {
       sync.enable = true;
