@@ -14,6 +14,8 @@ in
       ./hardware-configuration.nix ./gpusync.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Automatic updates
   system.autoUpgrade.enable = true;
   system.autoUpgrade.dates = "weekly";
