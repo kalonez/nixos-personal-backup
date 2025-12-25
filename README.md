@@ -1,4 +1,8 @@
 # *RUNNING ZEN KERNEL. THE BEST ONE SO FAR!*
+###### To find pci ids
+*nix shell nixpkgs#pciutils -c lspci | grep ' VGA '
+
+
 # NixOS Configuration for Lenovo LOQ 15IAX9
 ###### Overview
 This is a personal NixOS configuration tailored for the Lenovo LOQ 15IAX9 laptop (specs: RTX 2050, Intel 12th Gen 12450HX). It should work for any laptop with this model.
