@@ -1,4 +1,4 @@
-# *RUNNING ZEN KERNEL. THE BEST ONE SO FAR!*
+# *RUNNING STABLE KERNEL. THE BEST ONE SO FAR!*
 ###### To find pci ids
 *nix shell nixpkgs#pciutils -c lspci | grep ' VGA '
 
