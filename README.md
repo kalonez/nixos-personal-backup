@@ -111,3 +111,7 @@ This setup runs Plasma separately for stability; lag or hangs are rare but recov
 ###### It will update itself to the most up-to date nixos repos including your drivers 
 * sudo nixos-rebuild switch --upgrade
 #### Don't forget to change the username(kalon)  to yours
+
+
+
+PS I've quit using NixOS. No operating system is perfect to be honest. It has its quirks.
