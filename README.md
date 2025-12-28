@@ -13,9 +13,9 @@ Most hardware issues resolved.
 Includes both Sync Mode (performance) and Offload Mode (battery saving).
 Pre-configured for KDE Plasma with relevant Lenovo utilities.
 
-## It is weird but this setup also bypasses some game anti-cheat.
-First `sudo-nixos-rebuild switch` when you first install NixOS KDE Plasma with the Calamare installer.
-If it doesn't rebuild switch because it is already updated then do it by installing a package like `git` or any package before switching the whole config
+## This NixOS configuration happens to resolve compatibility issues with certain game anti-cheat systems.
+#### Don't forget to change the username(kalon)  to yours
+After installing NixOS KDE Plasma via Calamares, begin with `sudo nixos-rebuild switch`. If the command reports that the system is already current, trigger a rebuild by first installing a package such as `git`—any package will work—then run the switch command with my config. "
 
 # Prerequisites
 ## Add Unstable Channel (Required)
@@ -114,7 +114,7 @@ This setup runs Plasma separately for stability; lag or hangs are rare but recov
 ## Don't forget to use the "update --upgrade" after you've applied this configuration if not, use:
 ###### It will update itself to the most up-to date nixos repos including your drivers 
 * sudo nixos-rebuild switch --upgrade
-#### Don't forget to change the username(kalon)  to yours
+
 
 
 
